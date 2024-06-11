@@ -1,0 +1,31 @@
+#instalar virtual environment
+python3 -m venv venv
+
+#iniciar virtual env
+venv\Scripts\activate
+
+#instalar django
+pip install django
+
+#criar projeto
+django-admin startproject review_empresas .
+
+#Criar aplicação
+python .\manage.py startapp review
+
+#Cria o Banco sqLite 3
+python .\manage.py migrate
+
+#Roda um server
+python .\manage.py runserver
+
+#Cria um super usuario
+python .\manage.py createsuperuser
+
+#Envia models para o servidor
+python .\manage.py makemigrations
+
+#
+
+
+#

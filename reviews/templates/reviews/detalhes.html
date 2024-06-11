@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ empresa.empresa }}{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card">
+        <!-- {% if empresa.foto_empresa %}-->
+        <img src="{{ empresa.foto_empresa.url }}" alt="Foto de {{ empresa.empresa }}" class="card-img-top banner-img">
+        <!--      {% else %}
+        <img class="card-img-top"
+            src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22286%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20286%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_18ff2550f67%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A14pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_18ff2550f67%22%3E%3Crect%20width%3D%22286%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22107.1953125%22%20y%3D%2296.3%22%3E286x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+            alt="Card image cap">
+        {% endif %}-->
+
+        <div class="card-body">
+            <h5 class="card-title">{{ empresa.empresa }} • {{empresa.media_avaliacoes}} <i
+                    class="bi bi-star-fill warning"></i></h5>
+            <p class="card-text">{{ empresa.descricao }}</p>
+            <p class="card-text">
+                <!-- Botão para abrir o modal -->
+                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#addReviewModal">
+                    Adicionar Avaliação
+                </button>
+            </p>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Comentários:</h2>
+    {% if reviews %}
+    {% for review in reviews %}
+    <div class="card mt-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <div>
+                {{ review.usuario.username }} disse:
+            </div>
+            {% if user.username == review.usuario.username %}
+
+            <div class="btn-group float-right" role="group" aria-label="Ações">
+                <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#addReviewModal"
+                    data-review-id="{{ review.id }}" data-review-comentario="{{ review.comentario }}"
+                    data-review-avaliacao="{{ review.avaliacao }}">
+                    <i class="bi bi-pencil-square"></i>
+                </button>
+                <form action="{% url 'url_deletar' pk=review.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-outline-danger"
+                        onclick="return confirm('Tem certeza que deseja excluir esta revisão?')">
+                        <i class="bi bi-trash-fill"></i>
+                    </button>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{ review.comentario }}</p>
+                <footer class="blockquote-footer">
+                    Avaliação: {{ review.avaliacao }} <i class="bi bi-star-fill"></i>
+                    <br>
+                    <cite title="Data do Comentário">{{ review.data }}
+                        {% if review.recente %}
+                        <span class="text-danger">• Nova avaliação</span>
+                        {% endif %}
+                    </cite>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>Esta empresa ainda não possui comentários.</p>
+    {% endif %}
+</div>
+
+<!-- Pop Up -->
+<div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addReviewModalLabel">Adicionar Avaliação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="reviewForm" method="post" action="{% url 'adicionar_review' empresa.id %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_avaliacao">Avaliação</label>
+                        <div class="star-rating">
+                            <input type="radio" id="star5" name="avaliacao" value="5" />
+                            <label for="star5" title="5 estrelas"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star4" name="avaliacao" value="4" />
+                            <label for="star4" title="4 estrelas"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star3" name="avaliacao" value="3" />
+                            <label for="star3" title="3 estrelas"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star2" name="avaliacao" value="2" />
+                            <label for="star2" title="2 estrelas"><i class="bi bi-star-fill"></i></label>
+                            <input type="radio" id="star1" name="avaliacao" value="1" />
+                            <label for="star1" title="1 estrela"><i class="bi bi-star-fill"></i></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="id_comentario">Comentário</label>
+                        <textarea name="comentario" id="id_comentario" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

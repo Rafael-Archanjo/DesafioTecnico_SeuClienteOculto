@@ -1,0 +1,63 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+
+.card-empresas {
+    height: 360px;
+}
+
+.tam-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    padding-top: 5px;
+    border-radius: 8px;
+}
+
+.star-rating {
+    direction: rtl;
+    display: inline-block;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    font-size: 2em;
+    color: #ddd;
+    cursor: pointer;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input[type="radio"]:checked~label {
+    color: #f5b301;
+}
+
+.banner-img {
+    width: 100%;
+    height: 367px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+    padding-top: 5px;
+    border-radius: 8px;
+}
+
+.hidex {
+    overflow-x: hidden;
+
+}
