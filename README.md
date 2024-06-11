@@ -4,7 +4,6 @@
 - [Desafio Técnico do Processo Seletivo Seu Cliente Oculto](#desafio-técnico-do-processo-seletivo-seu-cliente-oculto)
   - [Índice](#índice)
   - [Descrição do Desafio](#descrição-do-desafio)
-    - [Telas Obrigatórias](#telas-obrigatórias)
   - [Telas Desenvolvidas](#telas-desenvolvidas)
     - [Base.html](#basehtml)
     - [Tela de LogIn (login.html)](#tela-de-login-loginhtml)
