@@ -55,7 +55,10 @@ A tela de Detalhes oferece uma visão mais completa da empresa. Além do nome da
 
 ![Diagrama de Entidade-Relacionamento](path/to/diagram_image.png)
 
----
+
 
 ## Contato
-Para mais detalhes sobre a implementação ou execução da aplicação, consulte a documentação específica ou o código-fonte.
+[![LinkedIn](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rafael-archanjo/)
+[![Outlook](https://img.shields.io/badge/Microsoft_Outlook-0078D4?style=for-the-badge&logo=microsoft-outlook&logoColor=white)](mailto:rafael.archanjo@outlook.com)
+
+---
