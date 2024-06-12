@@ -13,7 +13,6 @@ body {
     flex: 1;
 }
 
-
 .card-empresas {
     height: 360px;
 }
@@ -59,5 +58,4 @@ body {
 
 .hidex {
     overflow-x: hidden;
-
 }

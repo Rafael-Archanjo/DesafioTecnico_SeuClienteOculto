@@ -34,7 +34,7 @@ O projeto deve conter as seguintes telas:
 ### Passo a Passo
   1. Clone o repositório:
      1. Abra o 'git bash' na pasta escolhida para clonar o repositorio;
-     2. No 'git bash' digite ```git clone https://github.com/Rafael-Archanjo/DesafioTecnico_SeuClienteOculto.git``` e pressione  enter.
+     2. No 'git bash' digite `git clone https://github.com/Rafael-Archanjo/DesafioTecnico_SeuClienteOculto.git` e pressione  enter.
    
   2. Iniciando o ambiente virtual:
      1. Abra o 'CMD' na pasta do projeto e digite `venv\Scripts\activate` e pressione  enter.
