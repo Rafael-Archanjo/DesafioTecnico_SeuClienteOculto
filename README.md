@@ -4,7 +4,7 @@
 - [Desafio Técnico do Processo Seletivo Seu Cliente Oculto](#desafio-técnico-do-processo-seletivo-seu-cliente-oculto)
   - [Índice](#índice)
   - [Descrição do Desafio](#descrição-do-desafio)
-    - [Telas Obrigatórias](#telas-obrigatórias)
+  - [Como instalar](#como-instalar)
   - [Telas Desenvolvidas](#telas-desenvolvidas)
     - [Base.html](#basehtml)
     - [Tela de LogIn (login.html)](#tela-de-login-loginhtml)
@@ -15,13 +15,13 @@
   - [Contato](#contato)
 
 ## Descrição do Desafio
-O desafio consiste no desenvolvimento de uma aplicação que permite aos usuários avaliar empresas já cadastradas. O único requisito obrigatório é o uso do Framework Django.
-
-### Telas Obrigatórias
+O desafio consiste no desenvolvimento de uma aplicação que permite aos usuários avaliar empresas já cadastradas. O único requisito obrigatório é o uso do Framework Django.<br> 
 O projeto deve conter as seguintes telas:
 - Tela de LogIn de usuários cadastrados;
 - Tela com uma Listagem das empresas cadastradas para avaliação;
 - Tela com os detalhes da empresa, exibindo suas avaliações e comentários.
+
+## Como instalar
 
 ## Telas Desenvolvidas
 
