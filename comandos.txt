@@ -25,7 +25,7 @@ python .\manage.py createsuperuser
 #Envia models para o servidor
 python .\manage.py makemigrations
 
-#
-
+#Gera as dependências no arquivo requirements.txt
+pip freeze > requirements.txt
 
 #
