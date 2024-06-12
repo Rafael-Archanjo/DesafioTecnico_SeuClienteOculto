@@ -76,8 +76,6 @@ A tela de Detalhes oferece uma visão mais completa da empresa. Além do nome da
 ![Tela de Detalhes](./fotos_README/tela_Detalhes.jpg)
 
 ## Diagrama de Entidade-Relacionamento
-(Adicionar aqui o diagrama de entidade-relacionamento, caso tenha um.)
-
 ![Diagrama de Entidade-Relacionamento](./Diagrama_ER.png)
 
 
