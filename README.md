@@ -4,7 +4,9 @@
 - [Desafio Técnico do Processo Seletivo Seu Cliente Oculto](#desafio-técnico-do-processo-seletivo-seu-cliente-oculto)
   - [Índice](#índice)
   - [Descrição do Desafio](#descrição-do-desafio)
-  - [Como instalar](#como-instalar)
+  - [Como executar o arquivo](#como-executar-o-arquivo)
+    - [Requisitos](#requisitos)
+    - [Passo a Passo](#passo-a-passo)
   - [Telas Desenvolvidas](#telas-desenvolvidas)
     - [Base.html](#basehtml)
     - [Tela de LogIn (login.html)](#tela-de-login-loginhtml)
@@ -21,7 +23,30 @@ O projeto deve conter as seguintes telas:
 - Tela com uma Listagem das empresas cadastradas para avaliação;
 - Tela com os detalhes da empresa, exibindo suas avaliações e comentários.
 
-## Como instalar
+## Como executar o arquivo
+  ### Requisitos
+
+- Python 3.x
+- pip
+- virtualenv (opcional, mas recomendado)
+- Git
+  
+### Passo a Passo
+  1. Clone o repositório:
+     1. Abra o 'git bash' na pasta escolhida para clonar o repositorio;
+     2. No 'git bash' digite `git clone https://github.com/Rafael-Archanjo/DesafioTecnico_SeuClienteOculto.git` e pressione  enter.
+   
+  2. Iniciando o ambiente virtual:
+     1. Abra o 'CMD' na pasta do projeto e digite `venv\Scripts\activate` e pressione  enter.
+   
+  3. Instalando as dependências adicionais:
+     1. No 'CMD' execute o comando `pip install -r requirements.txt` para que as dependências adicionais sejam instaladas.
+   
+  4. Executando o servidor do projeto:
+     1. Ainda no 'CMD' execute o comando `python manage.py runserver` 
+     2. Agora o prejeto está sendo executado e pode ser acessado pelo link <a href="http://127.0.0.1:8000" target="_blank">127.0.0.1:8000</a>
+
+
 
 ## Telas Desenvolvidas
 
