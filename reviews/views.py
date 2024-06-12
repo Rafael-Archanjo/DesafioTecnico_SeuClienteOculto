@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from datetime import timedelta
+from django.urls import reverse_lazy
+
 
 
 def home(request):
@@ -14,10 +16,6 @@ def home(request):
     data['empresas'] = empresa.objects.all()
     return render(request, 'reviews/home.html', data)
 
-def base(request):
-    data = {}
-    data['empresas'] = empresa.objects.all()
-    return render(request, 'base.html', data)
 
 @login_required
 def detalhes(request, pk):

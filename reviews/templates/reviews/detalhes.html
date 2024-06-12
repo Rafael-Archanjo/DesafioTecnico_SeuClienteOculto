@@ -36,7 +36,7 @@
             </div>
             {% if user.username == review.usuario.username %}
 
-            <div class="btn-group float-right" role="group" aria-label="Ações">git
+            <div class="btn-group float-right" role="group" aria-label="Ações">
                 <form action="{% url 'url_deletar' pk=review.id %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"
