@@ -10,13 +10,14 @@ from datetime import timedelta
 from django.urls import reverse_lazy
 
 
-
+#Função que redireciona para pagina principal e carrega seus dados
 def home(request):
     data = {}
     data['empresas'] = empresa.objects.all()
     return render(request, 'reviews/home.html', data)
 
 
+#Função que redireciona para pagina de detalhes e carrega seus dados
 @login_required
 def detalhes(request, pk):
     data = {}
@@ -25,7 +26,7 @@ def detalhes(request, pk):
     reviews = empresa_obj.reviews.all().order_by('-data')
     data['reviews'] = reviews
     
-    # Add a 'is_new' attribute to each review
+    #Função para colocar tag "Novo comentario" para novas reviews
     now = timezone.now()
     for review in reviews:
         review.recente = (now - review.data) < timedelta(minutes=5)
@@ -34,7 +35,7 @@ def detalhes(request, pk):
 
 
 
-
+#Função para adicionar uma review a uma empresa
 @csrf_protect
 @login_required
 def adicionar_review(request, pk):
@@ -50,12 +51,12 @@ def adicionar_review(request, pk):
             novo_review.empresa = empresa_obj
             novo_review.usuario = request.user
             novo_review.save()
-            # Redirecionar de volta para a página de detalhes após adicionar a avaliação
             return redirect('url_detalhes', pk=pk)
 
     return redirect('url_detalhes', pk=pk)
 
 
+#Função que permite que reviews sejam deletadas
 def deletarReview(request, pk):
     reviewAtual = review.objects.get(pk=pk)
     reviewAtual.delete()

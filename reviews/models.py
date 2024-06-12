@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
 
+#Criação do modelo Empresa
 class empresa(models.Model):
     empresa = models.CharField(max_length=40)
     descricao = models.TextField()
@@ -11,6 +11,7 @@ class empresa(models.Model):
     def __str__(self):
        return self.empresa
 
+    #Função para medir a media da avaliação da empresa
     @property    
     def media_avaliacoes(self):
         reviews = self.reviews.all()
@@ -19,7 +20,7 @@ class empresa(models.Model):
             return round(media, 2)
         return 0.0
 
-   
+#Criação do modelo Review
 class review(models.Model):
     empresa = models.ForeignKey(empresa, related_name='reviews', on_delete=models.CASCADE)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
