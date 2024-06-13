@@ -11,6 +11,7 @@ from django.urls import reverse_lazy
 
 
 #Função que redireciona para pagina principal e carrega seus dados
+@login_required
 def home(request):
     data = {}
     data['empresas'] = empresa.objects.all()
@@ -25,6 +26,7 @@ def detalhes(request, pk):
     data['empresa'] = empresa_obj
     reviews = empresa_obj.reviews.all().order_by('-data')
     data['reviews'] = reviews
+    data['estrelas'] = range(5)
     
     #Função para colocar tag "Novo comentario" para novas reviews
     now = timezone.now()

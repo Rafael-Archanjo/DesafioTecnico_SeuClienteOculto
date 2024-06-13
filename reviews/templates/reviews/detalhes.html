@@ -18,8 +18,8 @@
                     class="bi bi-star-fill warning"></i></h5>
             <p class="card-text">{{ empresa.descricao }}</p>
             <p class="card-text">
-                <!-- Botão para abrir o modal -->
-                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#addReviewModal">
+                <!-- Botão para avaliar a empresa -->
+                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#ReviewPopUp">
                     Adicionar Avaliação
                 </button>
             </p>
@@ -34,31 +34,44 @@
             <div>
                 {{ review.usuario.username }} disse:
             </div>
+
+            <!-- Caso o usuario seja o autor da review ele pode deleta-la -->
             {% if user.username == review.usuario.username %}
 
             <div class="btn-group float-right" role="group" aria-label="Ações">
                 <form action="{% url 'url_deletar' pk=review.id %}" method="post">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-outline-danger"
-                        onclick="return confirm('Tem certeza que deseja excluir esta revisão?')">
+                        onclick="return confirm('Tem certeza que deseja excluir este review?')">
                         <i class="bi bi-trash-fill"></i>
                     </button>
                 </form>
             </div>
             {% endif %}
+            
         </div>
         <div class="card-body">
             <blockquote class="blockquote mb-0">
                 <p>{{ review.comentario }}</p>
                 <footer class="blockquote-footer">
-                    Avaliação: {{ review.avaliacao }} <i class="bi bi-star-fill"></i>
-                    <br>
-                    <cite title="Data do Comentário">{{ review.data }}
-                        {% if review.recente %}
-                        <span class="text-danger">• Nova avaliação</span>
+
+                    <!-- Exibir estrelas da avaliação de acordo com a avaliação -->
+                    {% for i in estrelas %}
+                        {% if i < review.avaliacao %} 
+                        <span class="text-warning"><i class="bi bi-star-fill"></i></span>
+                        {% else %}
+                        <span class="text-warning"><i class="bi bi-star"></i></span>
                         {% endif %}
-                    </cite>
+                    {% endfor %}
+                        <br>
+                        <cite title="Data do Comentário">{{ review.data }}
+                            <!--Caso o review possua menos de 5 minutos essa mensagem é exibida-->
+                            {% if review.recente %}
+                            <span class="text-danger">• Nova avaliação</span>
+                            {% endif %}
+                        </cite>
                 </footer>
+
             </blockquote>
         </div>
     </div>
@@ -68,14 +81,14 @@
     {% endif %}
 </div>
 
-<!-- Pop Up -->
-<div class="modal fade" id="addReviewModal" tabindex="-1" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+<!-- PopUp de cadastro de review -->
+<div class="modal fade" id="ReviewPopUp" tabindex="-1" aria-labelledby="ReviewPopUpLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addReviewModalLabel">Adicionar Avaliação</h5>
+                <h5 class="modal-title" id="ReviewPopUpLabel">Adicionar Avaliação</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <i class="bi bi-x"></i>
                 </button>
             </div>
             <div class="modal-body">
@@ -85,15 +98,15 @@
                         <label for="id_avaliacao">Avaliação:</label><br>
                         <div class="star-rating">
                             <input type="radio" id="estrela5" name="avaliacao" value="5" />
-                            <label for="estrela5" ><i class="bi bi-star-fill"></i></label>
+                            <label for="estrela5"><i class="bi bi-star-fill"></i></label>
                             <input type="radio" id="estrela4" name="avaliacao" value="4" />
-                            <label for="estrela4" ><i class="bi bi-star-fill"></i></label>
+                            <label for="estrela4"><i class="bi bi-star-fill"></i></label>
                             <input type="radio" id="estrela3" name="avaliacao" value="3" />
-                            <label for="estrela3" ><i class="bi bi-star-fill"></i></label>
+                            <label for="estrela3"><i class="bi bi-star-fill"></i></label>
                             <input type="radio" id="estrela2" name="avaliacao" value="2" />
-                            <label for="estrela2" ><i class="bi bi-star-fill"></i></label>
+                            <label for="estrela2"><i class="bi bi-star-fill"></i></label>
                             <input type="radio" id="estrela1" name="avaliacao" value="1" />
-                            <label for="estrela1" ><i class="bi bi-star-fill"></i></label>
+                            <label for="estrela1"><i class="bi bi-star-fill"></i></label>
                         </div>
                     </div>
                     <div class="form-group">
