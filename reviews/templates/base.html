@@ -17,6 +17,7 @@
 </head>
 
 <body class="d-flex flex-column h-100 hidex">
+    <!-- Barra de Navegação -->
     <header class="border-bottom">
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <div class="container-fluid">
@@ -43,7 +44,7 @@
                         </form>
                         {% else %}
                         <a class="btn btn-outline-primary mr-2" href="/accounts/login">Entrar</a>
-                        <a class="btn btn-primary" href="../accounts/registrar">Registrar</a>
+                        <a class="btn btn-primary" href="{% url 'url_registrar' %}">Registrar</a>
 
                         {% endif %}
                     </div>
@@ -58,8 +59,8 @@
         {% endblock content %}
     </main>
 
-
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-1 border-top" >
+    <!-- Footer -->
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-1 border-top">
         <div class="col-md-4 d-flex align-items-center footer navbar-fixed-bottom">
             <a href="/" class="mb-3 me-2 mb-md-0 text-secondary text-decoration-none lh-1">
                 <svg class="bi" width="30" height="24">
@@ -70,12 +71,14 @@
         </div>
 
         <ul class="nav col-md-4 justify-content-end d-flex">
-            <li class="ml-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/rafael-archanjo/" target="_blank"><i class="bi bi-linkedin h3"></i></a></li>
-            <li class="ml-3"><a class="text-body-secondary" href="https://github.com/Rafael-Archanjo" target="_blank"><i class="bi bi-github h3"></i></a></li>
+            <li class="ml-3"><a class="text-body-secondary" href="https://www.linkedin.com/in/rafael-archanjo/"
+                    target="_blank"><i class="bi bi-linkedin h3"></i></a></li>
+            <li class="ml-3"><a class="text-body-secondary" href="https://github.com/Rafael-Archanjo" target="_blank"><i
+                        class="bi bi-github h3"></i></a></li>
         </ul>
     </footer>
 
-
+    <script src="{% static 'js/scripts.css' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
