@@ -51,7 +51,7 @@ O projeto deve conter as seguintes telas:
 ## Telas Desenvolvidas
 
 ### Base.html
-A tela base é composta pela barra de navegação e o rodapé das páginas. Ela serve como contêiner para as demais páginas e é responsável pela aplicação dos estilos em CSS3.
+A tela base é composta pela barra de navegação e o rodapé das páginas. Ela serve como contêiner para as demais páginas e é responsável pela aplicação dos estilos em CSS3 e pelo JavaScript.
 
 ### Tela de LogIn (login.html)
 Uma tela simples com campos de 'Nome de usuário' e 'Senha', além de botões como 'Entrar', que efetua o login caso os dados estejam corretos, e o botão 'Cadastre-se', que leva para a tela de cadastro onde é possível criar um usuário.
