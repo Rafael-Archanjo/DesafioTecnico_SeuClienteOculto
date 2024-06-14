@@ -37,7 +37,8 @@ O projeto deve conter as seguintes telas:
      2. No 'git bash' digite `git clone https://github.com/Rafael-Archanjo/DesafioTecnico_SeuClienteOculto.git` e pressione  enter.
    
   2. Iniciando o ambiente virtual:
-     1. Abra o 'CMD' na pasta do projeto e digite `venv\Scripts\activate` e pressione  enter.
+     1. Abra o 'CMD' na pasta do projeto e digite `venv\Scripts\activate` e pressione  enter no windows;
+     2. ou `source venv/Scripts/activate` para Linux e Mac.
    
   3. Instalando as dependências adicionais:
      1. No 'CMD' execute o comando `pip install -r requirements.txt` para que as dependências adicionais sejam instaladas.
