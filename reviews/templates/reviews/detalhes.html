@@ -96,7 +96,7 @@
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="id_avaliacao">Avaliação:</label><br>
-                        <div class="star-rating">
+                        <div class="estrelas-avaliação">
                             <input type="radio" id="estrela5" name="avaliacao" value="5" />
                             <label for="estrela5"><i class="bi bi-star-fill"></i></label>
                             <input type="radio" id="estrela4" name="avaliacao" value="4" />
@@ -111,7 +111,7 @@
                     </div>
                     <div class="form-group">
                         <label for="id_comentario">Comentário: </label>
-                        <textarea name="comentario" id="id_comentario" class="form-control" rows="3"></textarea>
+                        <textarea name="comentario" id="id_comentario" class="form-control comentario" rows="3"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>

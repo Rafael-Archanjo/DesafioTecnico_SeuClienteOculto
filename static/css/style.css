@@ -26,24 +26,24 @@ body {
     border-radius: 8px;
 }
 
-.star-rating {
+.estrelas-avaliação {
     direction: rtl;
     display: inline-block;
 }
 
-.star-rating input[type="radio"] {
+.estrelas-avaliação input[type="radio"] {
     display: none;
 }
 
-.star-rating label {
+.estrelas-avaliação label {
     font-size: 2em;
     color: #ddd;
     cursor: pointer;
 }
 
-.star-rating label:hover,
-.star-rating label:hover~label,
-.star-rating input[type="radio"]:checked~label {
+.estrelas-avaliação label:hover,
+.estrelas-avaliação label:hover~label,
+.estrelas-avaliação input[type="radio"]:checked~label {
     color: #f5b301;
 }
 
@@ -58,4 +58,8 @@ body {
 
 .hidex {
     overflow-x: hidden;
+}
+
+.comentario{
+    resize: none;
 }
